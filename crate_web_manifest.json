@@ -39,13 +39,31 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots", "vehicles", "creatures", "ui", "weapons"],
-      "formats": ["wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots",
+        "vehicles",
+        "creatures",
+        "ui",
+        "weapons"
+      ],
+      "formats": [
+        "wav"
+      ],
       "size_bytes_estimate": 160000000000,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://sonniss.com/gameaudiogdc/", "last_checked": null, "status": "unknown" },
-      "mirrors": ["sonniss-gdc-archive-collection"],
+      "health_check": {
+        "url": "https://sonniss.com/gameaudiogdc/",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "error",
+        "http_code": 403
+      },
+      "mirrors": [
+        "sonniss-gdc-archive-collection"
+      ],
       "notes": "Parent/hub entry. Individual yearly bundles are sub-entries (sonniss-gdc-YYYY). AI/ML training prohibited by license."
     },
     {
@@ -65,12 +83,24 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "wav"
+      ],
       "size_bytes_estimate": 8020000000,
       "file_count_estimate": 347,
       "checksum_sha256": null,
-      "health_check": { "url": "https://gdc.sonniss.com/", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://gdc.sonniss.com/",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "error",
+        "http_code": 403
+      },
       "mirrors": [],
       "notes": "7.47 GB, 347 WAV files."
     },
@@ -91,12 +121,24 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://sonniss.com/gameaudiogdc/", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://sonniss.com/gameaudiogdc/",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "error",
+        "http_code": 403
+      },
       "mirrors": [],
       "notes": "Direct URL resolves from hub page."
     },
@@ -117,12 +159,24 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://gdc.sonniss.com/gdc-2024-game-audio-bundle/", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://gdc.sonniss.com/gdc-2024-game-audio-bundle/",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "error",
+        "http_code": 403
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -143,13 +197,27 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "wav"
+      ],
       "size_bytes_estimate": 44000000000,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://gdc.sonniss.com/gdc-game-audio-bundle/", "last_checked": null, "status": "unknown" },
-      "mirrors": ["sonniss-gdc-2023-archive"],
+      "health_check": {
+        "url": "https://gdc.sonniss.com/gdc-game-audio-bundle/",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "error",
+        "http_code": 403
+      },
+      "mirrors": [
+        "sonniss-gdc-2023-archive"
+      ],
       "notes": "~44 GB per Internet Archive mirror size."
     },
     {
@@ -169,12 +237,25 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["wav", "zip"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "wav",
+        "zip"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://archive.org/details/SonnissGameAudioGDC", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://archive.org/details/SonnissGameAudioGDC",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "Mirror — use only if Sonniss CDN rate-limits. Dedupe against sonniss-gdc-hub."
     },
@@ -195,12 +276,25 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["zip", "wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "zip",
+        "wav"
+      ],
       "size_bytes_estimate": 44000000000,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://archive.org/details/gdc-2023-game-audio-bundle", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://archive.org/details/gdc-2023-game-audio-bundle",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "Mirror of sonniss-gdc-2023."
     },
@@ -221,12 +315,25 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["zip", "wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "zip",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://archive.org/details/Sonniss.com_GDC_2018_Game_Audio_Bundle", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://archive.org/details/Sonniss.com_GDC_2018_Game_Audio_Bundle",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -247,12 +354,25 @@
         "ai_training_allowed": false
       },
       "category": "mixed",
-      "content_types": ["foley", "impacts", "ambiences", "one-shots"],
-      "formats": ["zip", "wav"],
+      "content_types": [
+        "foley",
+        "impacts",
+        "ambiences",
+        "one-shots"
+      ],
+      "formats": [
+        "zip",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://archive.org/details/Sonniss.comGDC2016GameAudioBundle", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://archive.org/details/Sonniss.comGDC2016GameAudioBundle",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -273,12 +393,23 @@
         "ai_training_allowed": true
       },
       "category": "ui",
-      "content_types": ["ui", "one-shots"],
-      "formats": ["ogg", "wav"],
+      "content_types": [
+        "ui",
+        "one-shots"
+      ],
+      "formats": [
+        "ogg",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 60,
       "checksum_sha256": null,
-      "health_check": { "url": "https://kenney.nl/assets/digital-audio", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://kenney.nl/assets/digital-audio",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "60 digital/UI one-shots."
     },
@@ -299,12 +430,23 @@
         "ai_training_allowed": true
       },
       "category": "impact",
-      "content_types": ["impacts", "one-shots"],
-      "formats": ["ogg", "wav"],
+      "content_types": [
+        "impacts",
+        "one-shots"
+      ],
+      "formats": [
+        "ogg",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 130,
       "checksum_sha256": null,
-      "health_check": { "url": "https://kenney.nl/assets/impact-sounds", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://kenney.nl/assets/impact-sounds",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "130 impact one-shots."
     },
@@ -325,12 +467,23 @@
         "ai_training_allowed": true
       },
       "category": "ui",
-      "content_types": ["ui", "one-shots"],
-      "formats": ["ogg", "wav"],
+      "content_types": [
+        "ui",
+        "one-shots"
+      ],
+      "formats": [
+        "ogg",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 50,
       "checksum_sha256": null,
-      "health_check": { "url": "https://kenney.nl/assets/ui-audio", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://kenney.nl/assets/ui-audio",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "50 UI one-shots."
     },
@@ -351,12 +504,24 @@
         "ai_training_allowed": true
       },
       "category": "one-shot",
-      "content_types": ["one-shots", "impacts", "ui"],
-      "formats": ["ogg", "wav"],
+      "content_types": [
+        "one-shots",
+        "impacts",
+        "ui"
+      ],
+      "formats": [
+        "ogg",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 50,
       "checksum_sha256": null,
-      "health_check": { "url": "https://kenney.nl/assets/rpg-audio", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://kenney.nl/assets/rpg-audio",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "50 RPG/fantasy one-shots."
     },
@@ -377,12 +542,23 @@
         "ai_training_allowed": true
       },
       "category": "ui",
-      "content_types": ["ui", "one-shots"],
-      "formats": ["ogg", "wav"],
+      "content_types": [
+        "ui",
+        "one-shots"
+      ],
+      "formats": [
+        "ogg",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 100,
       "checksum_sha256": null,
-      "health_check": { "url": "https://kenney.nl/assets/interface-sounds", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://kenney.nl/assets/interface-sounds",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "100 interface sounds."
     },
@@ -403,12 +579,24 @@
         "ai_training_allowed": true
       },
       "category": "one-shot",
-      "content_types": ["one-shots", "ui", "impacts"],
-      "formats": ["ogg", "wav"],
+      "content_types": [
+        "one-shots",
+        "ui",
+        "impacts"
+      ],
+      "formats": [
+        "ogg",
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 70,
       "checksum_sha256": null,
-      "health_check": { "url": "https://kenney.nl/assets/sci-fi-sounds", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://kenney.nl/assets/sci-fi-sounds",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "70 sci-fi one-shots."
     },
@@ -429,12 +617,24 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["one-shots", "impacts", "ui"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "one-shots",
+        "impacts",
+        "ui"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/cc0-sound-effects", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/cc0-sound-effects",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -455,12 +655,26 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["bells", "doors", "explosions", "glass", "metal"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "bells",
+        "doors",
+        "explosions",
+        "glass",
+        "metal"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 100,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/100-cc0-sfx", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/100-cc0-sfx",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "Recorded with an Android device."
     },
@@ -481,12 +695,22 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["one-shots"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "one-shots"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/soundfx-library-cc0", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/soundfx-library-cc0",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -507,12 +731,22 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["one-shots"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "one-shots"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/cc0-sounds-library", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/cc0-sounds-library",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -533,12 +767,25 @@
         "ai_training_allowed": true
       },
       "category": "one-shot",
-      "content_types": ["one-shots", "blade", "coins", "spells"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "one-shots",
+        "blade",
+        "coins",
+        "spells"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 80,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/80-cc0-rpg-sfx", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/80-cc0-rpg-sfx",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -559,12 +806,25 @@
         "ai_training_allowed": true
       },
       "category": "foley",
-      "content_types": ["metal", "wood", "doors", "hammers"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "metal",
+        "wood",
+        "doors",
+        "hammers"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": 100,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": ""
     },
@@ -585,12 +845,22 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["mixed"],
-      "formats": ["wav", "ogg"],
+      "content_types": [
+        "mixed"
+      ],
+      "formats": [
+        "wav",
+        "ogg"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://opengameart.org/content/good-cc0-audio", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://opengameart.org/content/good-cc0-audio",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "Liberated Pixel Cup audio collection."
     },
@@ -611,12 +881,25 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["ui", "notifications", "alerts", "whooshes"],
-      "formats": ["wav", "mp3"],
+      "content_types": [
+        "ui",
+        "notifications",
+        "alerts",
+        "whooshes"
+      ],
+      "formats": [
+        "wav",
+        "mp3"
+      ],
       "size_bytes_estimate": 500000000,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://github.com/rse/soundfx", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://github.com/rse/soundfx",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "Per-file licence manifest in repo. Client must extract and preserve individual attributions for CC-BY-3.0 files."
     },
@@ -637,12 +920,24 @@
         "ai_training_allowed": true
       },
       "category": "mixed",
-      "content_types": ["cinematic", "foley", "drones", "impacts"],
-      "formats": ["wav"],
+      "content_types": [
+        "cinematic",
+        "foley",
+        "drones",
+        "impacts"
+      ],
+      "formats": [
+        "wav"
+      ],
       "size_bytes_estimate": null,
       "file_count_estimate": null,
       "checksum_sha256": null,
-      "health_check": { "url": "https://99sounds.org/sounds/", "last_checked": null, "status": "unknown" },
+      "health_check": {
+        "url": "https://99sounds.org/sounds/",
+        "last_checked": "2026-04-18T03:27:01Z",
+        "status": "ok",
+        "http_code": 200
+      },
       "mirrors": [],
       "notes": "Aggregator entry. Individual packs should be added as sub-entries with per-pack checksums as they are curated. Each pack's bundled LICENSE/README should be parsed on import — attribution requirements vary."
     }
