@@ -2,8 +2,6 @@
 
 `crate_web_manifest.json` is the source-of-truth catalogue for the **Web** section of Crate. It is reference-only: Crate does not rehost any audio listed here. Clients fetch from `source_url` / `download_url` on first use, then compute waveforms / BPM / key / LUFS / duration client-side after download.
 
-> **Repo visibility:** This repo is **private** during development. Before the first public Crate build ships, flip it to **public** — the shipped iOS/macOS client fetches `raw.githubusercontent.com/.../crate_web_manifest.json` unauthenticated and will 404 against a private repo. See [Pre-launch checklist](#pre-launch-checklist).
-
 ## Top-level fields
 
 | Field | Type | Purpose |
@@ -133,17 +131,6 @@ API-only sources (Freesound CC0/CC-BY, BigSoundBank, Pixabay) are intentionally 
 - **YouTube Audio Library** — Tier-3 ambiguity; better-covered by Tier-1 sources.
 - **Generic "no copyright" YouTube channels** — unclear/misattributed terms.
 
-## Pre-launch checklist
+## Consumption
 
-This repo is **private** during development. The shipped Crate client uses an unauthenticated `URLSession` to fetch the manifest from `raw.githubusercontent.com`, which only resolves for **public** repos. Before the first public Crate build:
-
-1. **Flip visibility to public.**
-   `Settings → General → Danger Zone → Change visibility → Make public`
-   Confirm by typing the repo name.
-2. **Verify the raw URL resolves anonymously** from a fresh browser / `curl -I`:
-   `https://raw.githubusercontent.com/ControlRoomCreation/crate-web-manifest/main/crate_web_manifest.json`
-   Expected: `HTTP/2 200`. If you see `404`, the visibility change hasn't propagated — wait 1-2 min and retry.
-3. **Run the health-check workflow once on the now-public repo** to make sure nothing in the workflow YAML assumed private-repo perms. Should be a no-op functionally — listed here as a defence-in-depth check.
-4. **Decide if you want a long-term private setup instead.** If you'd rather keep the manifest private after launch, the alternative is a small backend proxy (Server-side service holds a fine-grained PAT, fetches from GitHub, re-serves to clients). Do not embed a token in the shipped app — anyone can extract it from the IPA.
-
-Until step 1 happens, `WebManifestService.load()` in the Crate client will throw `WebManifestError.httpError(404)` on every cold launch and the Web directory will be empty. That's the right failure mode (no silent staleness), but it means: **don't ship a TestFlight/App Store build with this repo still private.**
+The shipped Crate client fetches this manifest anonymously from `raw.githubusercontent.com/ControlRoomCreation/crate-web-manifest/main/crate_web_manifest.json` via `WebManifestService.load()`. No token is embedded in the app; repo is public-by-design so the fetch can succeed unauthenticated.
