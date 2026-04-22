@@ -36,7 +36,7 @@ TIMEOUT_SECONDS = 30
 SLEEP_BETWEEN_REQUESTS_S = 1.5  # be polite to Sonniss / archive.org / Kenney
 USER_AGENT = (
     "CrateWebManifestHealthCheck/1.0 "
-    "(+https://github.com/ControlRoomCreation/crate-web-manifest; contact: thomas.edwards@tts.edu.sg)"
+    "(+https://github.com/ControlRoomCreation/crate-web-manifest; contact: bot@controlroomcreative.app)"
 )
 
 # Status vocabulary written into the manifest.
