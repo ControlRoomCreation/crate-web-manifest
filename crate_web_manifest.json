@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-25",
+  "generated_at": "2026-06-01",
   "generator": "cowork-sfx-discovery-phase-1",
   "description": "Web directory for Crate: curated external SFX sources. Reference-only — Crate does not rehost these files. Clients fetch directly from source_url / download_url on first use, then compute previews client-side.",
   "categories": [
@@ -57,7 +57,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://sonniss.com/gameaudiogdc/",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -97,7 +97,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://gdc.sonniss.com/",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -135,7 +135,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://sonniss.com/gameaudiogdc/",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -173,7 +173,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://gdc.sonniss.com/gdc-2024-game-audio-bundle/",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -211,7 +211,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://gdc.sonniss.com/gdc-game-audio-bundle/",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -252,7 +252,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://archive.org/details/SonnissGameAudioGDC",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -291,7 +291,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://archive.org/details/gdc-2023-game-audio-bundle",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -330,7 +330,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://archive.org/details/Sonniss.com_GDC_2018_Game_Audio_Bundle",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -369,7 +369,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://archive.org/details/Sonniss.comGDC2016GameAudioBundle",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -406,7 +406,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://kenney.nl/assets/digital-audio",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -443,7 +443,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://kenney.nl/assets/impact-sounds",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -480,7 +480,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://kenney.nl/assets/ui-audio",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -518,7 +518,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://kenney.nl/assets/rpg-audio",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -555,7 +555,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://kenney.nl/assets/interface-sounds",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -593,7 +593,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://kenney.nl/assets/sci-fi-sounds",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -631,7 +631,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/cc0-sound-effects",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -671,7 +671,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/100-cc0-sfx",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -707,7 +707,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/soundfx-library-cc0",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -743,7 +743,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/cc0-sounds-library",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -782,7 +782,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/80-cc0-rpg-sfx",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -821,7 +821,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -857,7 +857,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://opengameart.org/content/good-cc0-audio",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -896,7 +896,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://github.com/rse/soundfx",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
@@ -934,7 +934,7 @@
       "checksum_sha256": null,
       "health_check": {
         "url": "https://99sounds.org/sounds/",
-        "last_checked": "2026-05-25T10:02:09Z",
+        "last_checked": "2026-06-01T11:29:54Z",
         "status": "ok",
         "http_code": 200
       },
