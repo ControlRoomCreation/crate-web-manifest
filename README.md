@@ -76,20 +76,36 @@ Status vocabulary written into the manifest:
 
 | Path | Purpose |
 |---|---|
-| `.github/workflows/health-check.yml` | Cron + manual-dispatch workflow; checks out, runs Python, commits diffs, opens an Issue on new failures. |
+| `.github/workflows/health-check.yml` | Cron + manual-dispatch workflow; checks out, runs Python, opens a **PR** for substantive diffs, opens an Issue on new failures. Never pushes to `main`. |
 | `scripts/health_check.py` | Probe runner — HEAD-then-ranged-GET, status classification, in-place manifest update, GitHub Actions outputs. |
 | `scripts/requirements.txt` | Pinned Python deps (`requests`). |
 
 ### Setup checklist
 
 1. Push this repo to `ControlRoomCreation/crate-web-manifest` (run `bash SETUP.sh` from the repo root — it uses `gh` if installed, else walks you through the web UI).
-2. In **Settings → Actions → General → Workflow permissions**, enable *Read and write permissions* and tick *Allow GitHub Actions to create and approve pull requests* (needed for the bot to open issues).
-3. First run: trigger manually via **Actions → Crate Web Manifest — Health Check → Run workflow**. This populates all `status` fields the first time; subsequent weekly runs only commit diffs.
+2. In **Settings → Actions → General → Workflow permissions**, tick *Allow GitHub Actions to create and approve pull requests*.
 
-### What triggers a commit vs. an issue
+   > **Currently off** (verified 2026-08-14 at both repo and org level:
+   > `/repos/ControlRoomCreation/crate-web-manifest/actions/permissions/workflow`
+   > → `can_approve_pull_request_reviews: false`). While it is off, the
+   > workflow still pushes its update branch and then opens an **issue**
+   > linking the compare view instead of a PR. The run stays green either
+   > way. Turning it on is the only thing needed to get PRs.
 
-- **Commit** — any field in `crate_web_manifest.json` changed (status, last_checked, http_code, note, generated_at). Commit message carries the per-run summary.
+   The workflow declares its own `permissions:` block, so the
+   *Read and write permissions* radio does not need changing.
+3. First run: trigger manually via **Actions → Crate Web Manifest — Health Check → Run workflow**. This populates all `status` fields the first time.
+
+### What triggers a PR vs. an issue
+
+- **PR** — a *substantive* field changed: `status`, `http_code`, or `note` on any entry, or an entry was added or removed. A refreshed `last_checked` / `generated_at` on its own does **not** qualify; those move on every run and committing them weekly is churn. Per-run freshness is written to the Actions run summary instead.
 - **Issue** — one or more entries transitioned from `ok` → anything else in this run. Labelled `web-manifest`, `health-check`. Ok → ok with no change does not open an issue.
+- **Nothing** — everything still `ok` and unchanged. The run is green and silent.
+
+`main` is a protected branch, so the workflow never pushes to it. It failed
+three consecutive scheduled runs (2026-07-27, 08-03, 08-10) with
+`GH006: Protected branch update failed` while the check itself passed every
+time; opening a PR is the fix.
 
 ### Running locally
 
@@ -98,7 +114,14 @@ pip install -r scripts/requirements.txt
 python scripts/health_check.py
 ```
 
-Local runs update the manifest file but don't commit or open issues (the GitHub Actions outputs are no-ops outside CI).
+Local runs update the manifest file but don't commit, open PRs, or open issues (the GitHub Actions outputs are no-ops outside CI).
+
+Unit tests for the substantive-change detection (stdlib only, no network,
+no `requests` install needed):
+
+```bash
+python3 -m unittest discover -s scripts -p 'test_*.py' -v
+```
 
 ### Cadence
 

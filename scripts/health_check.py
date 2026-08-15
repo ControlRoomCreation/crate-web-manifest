@@ -7,6 +7,19 @@ updates ``status`` / ``last_checked`` / ``http_code`` / ``note`` in place,
 and re-writes the file. Emits summary and new-failure info to GitHub Actions
 outputs so the surrounding workflow can commit + open issues.
 
+Two "did anything change" outputs, deliberately different:
+
+``changed``
+    the serialised file differs at all. This is true on essentially every
+    run, because ``last_checked`` is rewritten for every entry and
+    ``generated_at`` is rewritten at the top level even when nothing about
+    the world changed.
+
+``substantive``
+    something other than those timestamps differs — a status, an HTTP code,
+    or a note. This is the one worth committing. Between 2026-07-20 and
+    2026-08-14 every scheduled run was pure timestamp churn.
+
 Exit code:
     0  on success (regardless of which entries failed their checks).
     2  on script-level error (manifest unreadable, etc.).
@@ -17,6 +30,7 @@ Run locally:
 
 from __future__ import annotations
 
+import copy
 import json
 import os
 import sys
@@ -98,6 +112,34 @@ def probe(url: str) -> tuple[str, int | None, str | None]:
 
 
 # ---------------------------------------------------------------------------
+# Substantive-change detection
+# ---------------------------------------------------------------------------
+
+# Fields that move on every single run regardless of what the probes found.
+VOLATILE_TOP_LEVEL = ("generated_at",)
+VOLATILE_PER_ENTRY = ("last_checked",)
+
+
+def strip_volatile(manifest: dict[str, Any]) -> dict[str, Any]:
+    """Return a deep copy with the always-moving timestamp fields removed.
+
+    Two manifests that compare equal after this are the same *finding* even
+    though their bytes differ. Committing that difference to a protected
+    branch every week is noise that buries the runs which actually found
+    something.
+    """
+    m = copy.deepcopy(manifest)
+    for key in VOLATILE_TOP_LEVEL:
+        m.pop(key, None)
+    for entry in m.get("entries", []):
+        hc = entry.get("health_check")
+        if isinstance(hc, dict):
+            for key in VOLATILE_PER_ENTRY:
+                hc.pop(key, None)
+    return m
+
+
+# ---------------------------------------------------------------------------
 # GitHub Actions outputs
 # ---------------------------------------------------------------------------
 
@@ -129,6 +171,9 @@ def main() -> int:
     except json.JSONDecodeError as e:
         print(f"manifest is not valid JSON: {e}", file=sys.stderr)
         return 2
+
+    # Snapshot before the probe loop mutates `manifest` in place.
+    manifest_before = copy.deepcopy(manifest)
 
     entries: list[dict[str, Any]] = manifest.get("entries", [])
     if not entries:
@@ -186,6 +231,7 @@ def main() -> int:
     # Re-serialise with stable key order + trailing newline so git diffs are clean.
     new_text = json.dumps(manifest, indent=2, ensure_ascii=False) + "\n"
     changed = new_text != raw_old
+    substantive = strip_volatile(manifest_before) != strip_volatile(manifest)
     if changed:
         MANIFEST_PATH.write_text(new_text, encoding="utf-8")
 
@@ -197,7 +243,11 @@ def main() -> int:
     print()
     print(summary)
 
+    if changed and not substantive:
+        print("(only last_checked / generated_at moved — not worth a commit)")
+
     gha_output("changed", "true" if changed else "false")
+    gha_output("substantive", "true" if substantive else "false")
     gha_output("summary", summary)
     if new_failures:
         failure_block = "\n".join(
