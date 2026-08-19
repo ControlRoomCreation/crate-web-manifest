@@ -12,3 +12,14 @@ venv/
 .idea/
 .vscode/
 *.swp
+
+# GSD pause-state — transient, machine-local, never tracked (portfolio-wide
+# proposal 2026-06-10: HANDOFF.json is per-session handoff state, not history).
+.planning/HANDOFF.json
+
+# Local secrets — real mechanism is gitignored .env + macOS keychain + wrangler
+# secrets + GitHub Actions secrets. Templates stay tracked.
+.env
+.env.*
+!.env.example
+!.env.*.example
