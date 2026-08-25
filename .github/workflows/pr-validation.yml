@@ -1,0 +1,64 @@
+name: PR Validation
+
+# A PR-context status check. Deliberately NOT part of health-check.yml:
+#
+#   * health-check.yml runs on `schedule` + `workflow_dispatch` only, so it
+#     produces no check on a pull request. Requiring its `health-check`
+#     context in branch protection would deadlock every PR — the context
+#     would never report.
+#   * It also holds `contents: write` + `pull-requests: write` +
+#     `issues: write` and probes third parties (Sonniss, Internet Archive).
+#     Adding `pull_request` to it would hand PR-context runs write scopes
+#     they should not have, hit third parties on every push, and spend
+#     ~20-minute jobs against the org's monthly included-minutes cap.
+#
+# This job reads files and nothing else: no network, no pip install, no
+# secrets, seconds of runtime.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Read-only. This job never writes to the repo, opens a PR, or files an issue.
+permissions:
+  contents: read
+
+# Opt JavaScript-based actions into Node.js 24 ahead of GitHub's June 2026
+# default-switch, matching health-check.yml.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+# Supersede in-flight runs for the same PR/branch — pushing three times in a
+# row should not spend three full runs against the minutes cap.
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# NOTE: no `paths:` filter, on purpose. A required status check that is
+# path-filtered never reports on PRs that miss the filter, which blocks merge
+# exactly the way the missing PR trigger does today.
+
+jobs:
+  # Job name is the branch-protection context string: `validate-manifest`.
+  # Renaming this job renames the required check — don't, without updating
+  # the protection rule at the same time.
+  validate-manifest:
+    name: validate-manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      # ubuntu-latest ships Python 3; the checks below are stdlib-only, so
+      # actions/setup-python and `pip install` are both unnecessary here.
+      - name: Show Python version
+        run: python3 --version
+
+      - name: Validate crate_web_manifest.json against the documented schema
+        run: python3 scripts/validate_manifest.py
+
+      - name: Run health-check unit tests
+        # Stdlib only — the suite stubs `requests` and asserts on any network
+        # access, so this stays PR-safe.
+        run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
