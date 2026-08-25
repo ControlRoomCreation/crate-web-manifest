@@ -80,6 +80,73 @@ Status vocabulary written into the manifest:
 | `scripts/health_check.py` | Probe runner — HEAD-then-ranged-GET, status classification, in-place manifest update, GitHub Actions outputs. |
 | `scripts/requirements.txt` | Pinned Python deps (`requests`). |
 
+## PR validation gate
+
+`.github/workflows/pr-validation.yml` is the repo's **pull-request status
+check**, separate from the health check on purpose.
+
+| Path | Purpose |
+|---|---|
+| `.github/workflows/pr-validation.yml` | Runs on `pull_request` and on `push` to `main`. `permissions: contents: read`, no network, no `pip install`. |
+| `scripts/validate_manifest.py` | Stdlib-only schema validator for `crate_web_manifest.json`. Reports every violation, exits 1 if there are any. |
+
+### Why not just add `pull_request` to `health-check.yml`
+
+- It holds `contents: write`, `pull-requests: write` and `issues: write`. A
+  PR-context run has no business with those scopes.
+- It probes Sonniss and the Internet Archive. Running that on every push is
+  impolite to them and spends ~20-minute jobs against the org's monthly
+  included-minutes cap.
+- Its `health-check` context only ever appears on `schedule` /
+  `workflow_dispatch` runs against `main`. Requiring it in branch protection
+  would deadlock every PR, because the context would never report on one.
+
+### What it checks
+
+Everything in this table is local to the repo — no third party is contacted:
+
+- `crate_web_manifest.json` parses as JSON.
+- Top-level fields present and correctly typed (`schema_version` int ≥ 1,
+  `generated_at` as `YYYY-MM-DD`, non-empty `categories[]`, non-empty `entries[]`).
+- Every entry carries exactly the documented field set — a **missing** field
+  and an **unknown** one (e.g. a typo'd `souce_url`) are both errors.
+- `id` is kebab-case and **unique** across entries.
+- `category` is drawn from the manifest's own `categories[]` vocabulary.
+- `download_resolution` ∈ `direct|scrape|api`; `tier` ∈ `1|2|3`.
+- The four `license` flags are real booleans (a string `"false"` is truthy and
+  would silently flip an advisory badge).
+- `health_check.status` is in the vocabulary `health_check.py` writes;
+  `http_code` is a 100–599 int; `last_checked` is `YYYY-MM-DDTHH:MM:SSZ`.
+- Every URL (`source_url`, `download_url`, `license.license_url`,
+  `health_check.url`) is a well-formed `http`/`https` URL with a host.
+- Every `mirrors[]` entry resolves to a real entry `id`, is not the entry's
+  own id, and is not duplicated.
+
+It also runs the existing `scripts/test_health_check.py` suite, which stubs
+`requests` and asserts on any network access.
+
+### Branch protection
+
+Require this exact context on `main`:
+
+```
+validate-manifest
+```
+
+That is the job name in `pr-validation.yml`. Renaming the job renames the
+required check — update the protection rule in the same change.
+
+There is deliberately **no `paths:` filter** on the workflow. A path-filtered
+required check never reports on PRs that miss the filter, which blocks merge
+the same way the missing trigger does.
+
+### Running locally
+
+```bash
+python3 scripts/validate_manifest.py
+python3 -m unittest discover -s scripts -p 'test_*.py' -v
+```
+
 ### Setup checklist
 
 1. Push this repo to `ControlRoomCreation/crate-web-manifest` (run `bash SETUP.sh` from the repo root — it uses `gh` if installed, else walks you through the web UI).
