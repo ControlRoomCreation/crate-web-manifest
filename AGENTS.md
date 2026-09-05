@@ -27,3 +27,14 @@ This repo is edited from two machines. **GitHub is the single source of truth.**
 - **Never force-push.** Never push directly to `main`; open a PR.
 - **Never commit secrets.** Real mechanism: gitignored `.env` files (VPS runtime), macOS keychain, `wrangler secret put`, GitHub Actions secrets. (The old age/sops line was aspirational — no such tooling exists; verified 2026-06-10.)
 - If you cannot reconcile divergent state safely, **STOP and ask** — do not guess.
+
+## Public repository scope
+
+- Read `README.md` for the catalogue schema and licence-badge contract. `crate_web_manifest.json` is the public, reference-only Web directory fetched anonymously by Crate; this repository does not rehost the listed audio or contain app/website implementation.
+- Preserve stable entry IDs, mirror references, and the documented licence flags. Licence badges are advisory under the existing contract. Do not infer redistribution rights, invent checksums, or add private operational notes, credentials, or customer data to this public repository.
+
+## Validation and publication
+
+- Run `python3 scripts/validate_manifest.py` and `python3 -m unittest discover -s scripts -p 'test_*.py' -v` for offline validation. `.github/workflows/pr-validation.yml` runs those checks on PRs and pushes to `main`.
+- `scripts/health_check.py` is a separate network probe that rewrites manifest health data. The scheduled/manual `.github/workflows/health-check.yml` can also push a branch and open a PR or issue; do not run or dispatch it as an offline test.
+- Changes to `main` become client-visible catalogue changes. Use a reviewed PR; obtain explicit owner approval before changing publication, repository access, workflow permissions, or external distribution. Preserve original source/licence evidence when updating an entry.
